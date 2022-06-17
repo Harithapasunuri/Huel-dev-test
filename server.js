@@ -1,5 +1,10 @@
+const { sleep, randomIntFromInterval } = require('./helpers')
+
+require('dotenv').config()
+
 const express = require("express");
 const bodyParser = require("body-parser");
+const port = process.env.PORT;
 
 const app = express();
 
@@ -9,14 +14,6 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static("public"));
 
-function randomIntFromInterval(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 app.get('/healthz', async (req, res) => {
     await sleep(randomIntFromInterval(0.5, 6) * 1000)
 
@@ -25,6 +22,6 @@ app.get('/healthz', async (req, res) => {
     })
 })
 
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+app.listen(port, function() {
+  console.log(`Server started on port ${port}`);
 });

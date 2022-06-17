@@ -1,7 +1,8 @@
-function randomIntFromInterval(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-}
+const { sleep, randomIntFromInterval } = require('./helpers');
 
-setInterval(() => {
-    console.log('Processed job!');
-}, randomIntFromInterval(1, 10) * 1000)
+(async () => {
+    while (true) {
+        await sleep(randomIntFromInterval(1, 10) * 500)
+        console.log('Processed job!')
+    }
+})()
