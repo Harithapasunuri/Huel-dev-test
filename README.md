@@ -8,6 +8,8 @@ Dockerize repository for kubernetes using helm charts.
 * Dockerize repository for kubernetes.
 * Have an ingress config in the helm charts.
 * On a deployment have the migration run before server and worker run.
+* Server and worker deployed on seperate pods.
+* No traffic to be routed to the pod before the migration is complete.
 * Worker to stop before starting a new instance.
 * Application must be able to autoscale.
 * Have zero downtime.
@@ -15,7 +17,7 @@ Dockerize repository for kubernetes using helm charts.
 ### Requirements:
 
 * Node version: 16
-* Helm Chart Version: v2
+* Helm version: v3
 
 ### Launch the starter project
 
